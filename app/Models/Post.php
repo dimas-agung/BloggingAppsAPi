@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    protected $with = ['comments'];
+    protected $with = ['comments.user','user'];
     protected $withCount = [ 'comments','likes' ];
     public function likes() 
     {
@@ -18,5 +18,9 @@ class Post extends Model
     public function comments() 
     {
         return $this->hasMany(PostComment::class, 'post_id');
+    }
+    public function user() 
+    {
+        return $this->hasOne(User::class, 'id','user_id');
     }
 }

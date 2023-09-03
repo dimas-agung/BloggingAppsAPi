@@ -41,7 +41,7 @@ Route::controller(PostsController::class)->group(function () {
 Route::controller(PostLikesController::class)->group(function () {
     Route::get('/post-like', 'index')->name('post-like.index');
     Route::post('/post-like/store', 'store')->name('post-like.store');
-    Route::delete('/post-like/destroy/{postLike}', 'destroy')->name('post-like.delete');
+    Route::delete('/post-like/destroy/{post_id}', 'destroy')->name('post-like.delete');
 });
 Route::controller(PostCommentsController::class)->group(function () {
     Route::get('/post-comment', 'index')->name('post-comment.index');
